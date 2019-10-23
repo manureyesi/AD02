@@ -21,11 +21,11 @@ As accións que se poden facer nesta aplicación son as seguintes:
 Non é necesario realizar unha interface gráfica. Pódese facer un menú que pida os datos pola consola.
 A persistencia debe de facerse do seguinte xeito:
 
-* Debese gardar os datos da aplicación nun arquivo JSON.
+* Debese gardar os datos da aplicación nun arquivo **JSON**.
 * Cando se inicie o programa lese ese arquivo para poder traballar cos datos.
-* Cada vez que se produza un cambio nos datos teremos que gardar estes no arquivo JSON.
-* Utiliza a librería GSON.
+* Cada vez que se produza un cambio nos datos teremos que gardar estes no arquivo **JSON**.
+* Utiliza a librería **GSON**.
 
-Para facer unha copia de seguridade dos datos deberase realizar unha copia do arquivo JSON onde se gardan os datos. Para realizar isto utilizaremos o visto en “Lectura e escritura de arquivos binarios”. O novo arquivo debe levar o sufixo .backup.
+Para facer unha copia de seguridade dos datos deberase realizar unha copia do arquivo **JSON** onde se gardan os datos. Para realizar isto utilizaremos o visto en ***“Lectura e escritura de arquivos binarios”***. O novo arquivo debe levar o sufixo .backup.
 
-En canto a lectura dos titulares de “El País” a aplicación tera que ler un RSS. Estes están en formato XML. Tan só se deberán mostrar por pantalla os titulares. Para iso utiliza SAX para parsear o documento XML. O arquivo XML telo debaixo da tarefa. Como ampliación e optativo sería interesante en lugar de ler o arquivo descargado, poder ler o arquivo online. Así sempre teriamos os titulares actualizados. O enlace dese XML é o seguinte: RSS de El País.
+En canto a lectura dos titulares de ***“El País”*** a aplicación tera que ler un **RSS**. Estes están en formato XML. Tan só se deberán mostrar por pantalla os titulares. Para iso utiliza **SAX** para parsear o documento **XML**. O arquivo XML telo debaixo da tarefa. Como ampliación e optativo sería interesante en lugar de ler o arquivo descargado, poder ler o arquivo online. Así sempre teriamos os titulares actualizados. O enlace dese XML é o seguinte: RSS de El País.
