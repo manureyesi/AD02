@@ -9,11 +9,7 @@ public class Item
 {
     private String comments;
 
-    private Enclosure[] enclosure;
-
     private String link;
-
-    private Guid guid;
 
     private String description;
 
@@ -33,16 +29,6 @@ public class Item
         this.comments = comments;
     }
 
-    public Enclosure[] getEnclosure ()
-    {
-        return enclosure;
-    }
-
-    public void setEnclosure (Enclosure[] enclosure)
-    {
-        this.enclosure = enclosure;
-    }
-
     public String getLink ()
     {
         return link;
@@ -51,16 +37,6 @@ public class Item
     public void setLink (String link)
     {
         this.link = link;
-    }
-
-    public Guid getGuid ()
-    {
-        return guid;
-    }
-
-    public void setGuid (Guid guid)
-    {
-        this.guid = guid;
     }
 
     public String getDescription ()
@@ -103,9 +79,4 @@ public class Item
         this.pubDate = pubDate;
     }
 
-    @Override
-    public String toString()
-    {
-        return "ClassPojo [comments = "+comments+", enclosure = "+enclosure+", link = "+link+", guid = "+guid+", description = "+description+", title = "+title+", category = "+category+", pubDate = "+pubDate+"]";
-    }
 }

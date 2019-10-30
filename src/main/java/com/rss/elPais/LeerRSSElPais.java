@@ -9,10 +9,20 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 import org.apache.commons.lang3.StringUtils;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.XMLReaderFactory;
 
 /**
  *
@@ -28,14 +38,19 @@ public class LeerRSSElPais {
             
             //Url Portada
             URL url = new URL(URL_PORTADA_EL_PAIS);
+            
             BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
 
-            JAXBContext jaxbContext = JAXBContext.newInstance(Rss.class);
+            XMLReader procesadorXML = XMLReaderFactory.createXMLReader();
+            
+            RssXML xml = new RssXML();
+            
+            procesadorXML.setContentHandler(xml);
 
-            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            Rss customer = (Rss) jaxbUnmarshaller.unmarshal(br);
+            InputSource arquivo = new InputSource(br);
+            procesadorXML.parse(arquivo);
 
-            for (Item item : customer.getChannel().getItem()) {
+            for (Item item : xml.getListaItems()) {
                 
                 System.out.println("---------------------------------------------------------");
                 System.out.println(item.getTitle());
@@ -47,10 +62,10 @@ public class LeerRSSElPais {
                 
             }
             
-        } catch (IOException | JAXBException e) {
+        } catch (IOException | SAXException e) {
             System.err.println("Error al leer Portada.");
         }
                 
     }
-    
+        
 }
